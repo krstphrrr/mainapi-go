@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  dima-golang:
+    container_name: dima-golang
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    image: dima-go
+    volumes:
+      - ./output:/app/output
+    networks:
+      - pg-network
+    ports:
+      - 8081:3000
+networks:
+  pg-network:
+    external: true
