@@ -40,9 +40,11 @@ func (s *APIServer) handleRequest(w http.ResponseWriter, r *http.Request) error 
 }
 
 func (s *APIServer) handleGetGap(w http.ResponseWriter, r *http.Request) error{
-	// return nil
-	// vars := mux.Vars(r)
-	return WriteJSON(w,http.StatusOK, &Gap{})
+	gaps, err := s.store.GetGaps()
+	if err != nil {
+		return err
+	}
+	return WriteJSON(w,http.StatusOK, gaps)
 }
 
 // HELPER FUNCTIONS

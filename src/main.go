@@ -1,8 +1,8 @@
 package main
 
 import (
-	"log"
-	"fmt"
+	 "log"
+// 	 "fmt"
 )
 // structure:
 // main
@@ -23,8 +23,8 @@ func main(){
 		log.Fatal(err)
 	}
 	// troubleshooting store connection
-	fmt.Printf("%+v/n", store)
-	// server := NewAPIServer(":3000", store)
-	// server.Run()
+	// fmt.Printf("%+v/n", store)
+	server := NewAPIServer(":3000", store)
+	server.Run()
 
 }
